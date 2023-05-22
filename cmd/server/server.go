@@ -26,11 +26,11 @@ func main() {
 	}
 
 	if _, err := db.Exec("CREATE TABLE IF NOT EXISTS categories(id string, name string, description string, primary key(id));"); err != nil {
-		log.Fatalf("failed to open database: %v", err)
+		log.Fatalf("failed to create table categories: %v", err)
 	}
 
 	if _, err := db.Exec("CREATE TABLE IF NOT EXISTS courses(id string, name string, description string, category_id string, primary key(id));"); err != nil {
-		log.Fatalf("failed to open database: %v", err)
+		log.Fatalf("failed to create table courses: %v", err)
 	}
 
 	defer db.Close()
